@@ -2,7 +2,7 @@
 
 A React-based dashboard to visualize geo-referenced project data in both tabular and map formats, with synchronized interactions and performance optimization for large datasets.
 
-🚀 Objective
+## 🚀 Objective
 
 Build a React application that consumes mock spatial + tabular data and presents it via:
 
@@ -12,7 +12,7 @@ An interactive map (Leaflet)
 
 Both views stay fully synchronized.
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 React + Vite
 
@@ -24,15 +24,17 @@ Leaflet + react-leaflet
 
 Local mock API (JSON-based)
 
-📁 Folder Structure & Component Decomposition
+## 📁 Folder Structure & Component Decomposition
+
+```txt
 src/
 ├── api/          # Mock API layer (async, paginated)
 ├── hooks/        # Data-fetching & state logic
 ├── components/   # UI components (Table, Map, Filters)
 ├── pages/        # Page-level composition
 ├── types/        # Shared TypeScript types
-├── utils/        # Sorting & filtering helpers
-
+└── utils/        # Sorting & filtering helpers
+```
 
 Why this structure?
 
@@ -42,7 +44,7 @@ Reusable and testable components
 
 Scales cleanly as features grow
 
-📊 Data Handling Strategy
+## 📊 Data Handling Strategy
 Mock API
 
 A static JSON file with 5,000 geo records
@@ -63,7 +65,7 @@ Filtering state
 
 Single source of truth
 
-⚡ Handling Large Datasets (5k+ rows)
+## ⚡ Handling Large Datasets (5k+ rows)
 
 MUI DataGrid with built-in row virtualization
 
@@ -87,7 +89,7 @@ Clicking a map marker highlights the corresponding table row
 
 No DOM manipulation, no duplicated state — purely React-driven synchronization.
 
-🧠 Key Design Decisions
+## 🧠 Key Design Decisions
 
 Local state only (no Redux) as per requirements
 
@@ -97,9 +99,9 @@ Latest MUI DataGrid API (paginationModel)
 
 Leaflet chosen for simplicity and reliability
 
-🧪 Screenshots / Recording
+## 🧪 Screenshots / Recording
 
-📸 Screenshots or a short screen recording demonstrate:
+## 📸 Screenshots or a short screen recording demonstrate:
 
 Table pagination & filtering
 
@@ -113,7 +115,7 @@ Bidirectional synchronization (table ↔ map)
 <img width="1918" height="926" alt="image" src="https://github.com/user-attachments/assets/237dbb43-adfd-4afd-aa96-e2ae350ced29" />
 
 
-⏱ Time Spent (Honest Breakdown)
+## ⏱ Time Spent (Honest Breakdown)
 
 Project setup & architecture: 1.5 hrs
 
@@ -127,18 +129,18 @@ Bug fixes, TypeScript strictness, polish: 1 hr
 
 Total: ~7 hours
 
-🔗 GitHub Repository
+## 🔗 GitHub Repository
 
-👉 GitHub Link:
+## 👉 GitHub Link:
 https://github.com/Dushant-A-Banpurkar/geo-visual
 
-✅ Evaluation Criteria Mapping
+## ✅ Evaluation Criteria Mapping
 Criteria	How it’s addressed
 Component decomposition	Feature-based folder structure
 Handling large datasets	Virtualized MUI DataGrid
 Map + UI synchronization	Shared selection state
 Code readability	Typed APIs, hooks, clean separation
-🔮 Possible Improvements
+## 🔮 Possible Improvements
 
 Map clustering for dense markers
 
@@ -148,6 +150,6 @@ Backend-powered pagination & filtering
 
 Unit tests for hooks and utilities
 
-🏁 Final Note
+## 🏁 Final Note
 
 This project focuses on clarity, performance, and maintainability, closely mirroring real-world frontend architecture rather than a demo-style implementation.
