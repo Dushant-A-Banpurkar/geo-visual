@@ -109,8 +109,8 @@ Bidirectional synchronization (table ↔ map)
 
 <img width="1919" height="929" alt="image" src="https://github.com/user-attachments/assets/32c1b322-7957-4012-af08-b98712e842a3" />
 <img width="1919" height="934" alt="image" src="https://github.com/user-attachments/assets/491cfb15-0efe-4eb9-b294-bdde47d67694" />
-![Uploading image.png…]()
-![Uploading image.png…]()
+<img width="1919" height="921" alt="image" src="https://github.com/user-attachments/assets/e59bbeec-366b-49ed-88fe-4285357284dc" />
+<img width="1918" height="926" alt="image" src="https://github.com/user-attachments/assets/237dbb43-adfd-4afd-aa96-e2ae350ced29" />
 
 
 ⏱ Time Spent (Honest Breakdown)
@@ -130,7 +130,7 @@ Total: ~7 hours
 🔗 GitHub Repository
 
 👉 GitHub Link:
-<PASTE YOUR REPO URL HERE>
+https://github.com/Dushant-A-Banpurkar/geo-visual
 
 ✅ Evaluation Criteria Mapping
 Criteria	How it’s addressed
