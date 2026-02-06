@@ -1,4 +1,4 @@
-📍 React Geo Data Dashboard
+## 📍 React Geo Data Dashboard
 
 A React-based dashboard to visualize geo-referenced project data in both tabular and map formats, with synchronized interactions and performance optimization for large datasets.
 
