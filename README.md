@@ -1,73 +1,153 @@
-# React + TypeScript + Vite
+📍 React Geo Data Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based dashboard to visualize geo-referenced project data in both tabular and map formats, with synchronized interactions and performance optimization for large datasets.
 
-Currently, two official plugins are available:
+🚀 Objective
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Build a React application that consumes mock spatial + tabular data and presents it via:
 
-## React Compiler
+A high-performance data table
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+An interactive map (Leaflet)
 
-## Expanding the ESLint configuration
+Both views stay fully synchronized.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🛠 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React + Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+TypeScript (strict mode, verbatimModuleSyntax)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Material UI (MUI) + DataGrid
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Leaflet + react-leaflet
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Local mock API (JSON-based)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📁 Folder Structure & Component Decomposition
+src/
+├── api/          # Mock API layer (async, paginated)
+├── hooks/        # Data-fetching & state logic
+├── components/   # UI components (Table, Map, Filters)
+├── pages/        # Page-level composition
+├── types/        # Shared TypeScript types
+├── utils/        # Sorting & filtering helpers
+
+
+Why this structure?
+
+Clear separation of data logic vs UI
+
+Reusable and testable components
+
+Scales cleanly as features grow
+
+📊 Data Handling Strategy
+Mock API
+
+A static JSON file with 5,000 geo records
+
+Simulated network latency
+
+Paginated responses
+
+This approach avoids unnecessary backend complexity and keeps the focus on frontend architecture and performance.
+
+Custom Hook (useGeoData)
+
+Centralized data fetching
+
+Pagination state
+
+Filtering state
+
+Single source of truth
+
+⚡ Handling Large Datasets (5k+ rows)
+
+MUI DataGrid with built-in row virtualization
+
+Server-side pagination mode (even with mock data)
+
+Minimal re-renders via scoped state
+
+Result: smooth scrolling and zero UI lag.
+
+🗺 Map + UI Synchronization
+
+A single shared state controls selection:
+
+const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+
+Interaction Flow
+
+Clicking a table row highlights the corresponding map marker
+
+Clicking a map marker highlights the corresponding table row
+
+No DOM manipulation, no duplicated state — purely React-driven synchronization.
+
+🧠 Key Design Decisions
+
+Local state only (no Redux) as per requirements
+
+Type-only imports to comply with strict TypeScript settings
+
+Latest MUI DataGrid API (paginationModel)
+
+Leaflet chosen for simplicity and reliability
+
+🧪 Screenshots / Recording
+
+📸 Screenshots or a short screen recording demonstrate:
+
+Table pagination & filtering
+
+Map marker rendering
+
+Bidirectional synchronization (table ↔ map)
+
+<img width="1919" height="929" alt="image" src="https://github.com/user-attachments/assets/32c1b322-7957-4012-af08-b98712e842a3" />
+<img width="1919" height="934" alt="image" src="https://github.com/user-attachments/assets/491cfb15-0efe-4eb9-b294-bdde47d67694" />
+![Uploading image.png…]()
+![Uploading image.png…]()
+
+
+⏱ Time Spent (Honest Breakdown)
+
+Project setup & architecture: 1.5 hrs
+
+Mock API & data generation: 0.5 hr
+
+Table (performance + pagination): 2 hrs
+
+Map integration & synchronization: 2 hrs
+
+Bug fixes, TypeScript strictness, polish: 1 hr
+
+Total: ~7 hours
+
+🔗 GitHub Repository
+
+👉 GitHub Link:
+<PASTE YOUR REPO URL HERE>
+
+✅ Evaluation Criteria Mapping
+Criteria	How it’s addressed
+Component decomposition	Feature-based folder structure
+Handling large datasets	Virtualized MUI DataGrid
+Map + UI synchronization	Shared selection state
+Code readability	Typed APIs, hooks, clean separation
+🔮 Possible Improvements
+
+Map clustering for dense markers
+
+URL-based state (deep linking)
+
+Backend-powered pagination & filtering
+
+Unit tests for hooks and utilities
+
+🏁 Final Note
+
+This project focuses on clarity, performance, and maintainability, closely mirroring real-world frontend architecture rather than a demo-style implementation.
